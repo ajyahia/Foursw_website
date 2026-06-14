@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>معرض الأعمال // FOURSW</title>
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/image/favicon.png" type="image/x-icon" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="style.css?v=2.0" />
+
+    <!--=============== GOOGLE FONTS (Pixel & Digital) ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
+
+    <!--=============== FONTAWESOME ===============-->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+
+    <!--=============== INTERNAL STYLES FOR PROJECTS PAGE ===============-->
+  </head>
+
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav_right">
+          <a href="contact.html" class="btn_contact btn"><i class="fa-regular fa-envelope"></i><span>[تواصل_معنا]</span></a>
+          <ul class="nav_list">
+            <li><a href="projects.html" class="nav_link active">الأعمال</a></li>
+            <li><a href="services.html" class="nav_link">الخدمات</a></li>
+            <li><a href="blog.html" class="nav_link">المُدونة </a></li>
+          </ul>
+        </div>
+
+        <button class="nav_toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="img_logo">
+          <img src="assets/image/logo.png" alt="logo" />
+        </a>
+
+        <div class="nav_left">
+          <ul class="nav_list">
+            <li><a href="index.html#partners" class="nav_link">شُركاؤنا</a></li>
+            <li><a href="index.html#direction" class="nav_link">الاتجاه</a></li>
+            <li><a href="index.html#start" class="nav_link">البِداية</a></li>
+          </ul>
+          <a href="projects.html" class="btn_stor btn">[متجر_الخدمات]</a>
+        </div>
+      </nav>
+      <div class="mobile_menu">
+        <div class="menu_scanner"></div>
+        <canvas class="menu_matrix_canvas"></canvas>
+        <div class="cyber_menu_header">
+          <span class="cyber_status"><span class="blink_dot"></span> النظام // متصل</span>
+          <span class="cyber_code">الاصدار ٢.٠</span>
+        </div>
+        <ul class="nav_list">
+          <li>
+            <a href="projects.html" class="nav_link active">
+              <div>
+                <span class="nav_link_num">// ٠١</span>
+                <span>الأعمال</span>
+              </div>
+              <span class="nav_link_arrow"><i class="fa-solid fa-chevron-left"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="nav_link">
+              <div>
+                <span class="nav_link_num">// ٠٢</span>
+                <span>الخدمات</span>
+              </div>
+              <span class="nav_link_arrow"><i class="fa-solid fa-chevron-left"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="nav_link">
+              <div>
+                <span class="nav_link_num">// ٠٣</span>
+                <span>المُدونة</span>
+              </div>
+              <span class="nav_link_arrow"><i class="fa-solid fa-chevron-left"></i></span>
+            </a>
+          </li>
+        </ul>
+        <div class="cyber_menu_footer">
+          <span>المنفذ // آمن</span>
+          <span>الاستجابة // ١٢ ملي ثانية</span>
+        </div>
+      </div>
+
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <section class="projects_page">
+        <div class="container">
+
+          <div class="projects_header_section">
+            <span class="projects_title_badge">[معرض_العمليات_الرقمية]</span>
+            <h1 class="projects_main_title">مشاريع صُنعت بدقة برمجية ورؤية إبداعية</h1>
+          </div>
+
+          <!-- Filter buttons styled like Watch Video button -->
+          <div class="filter_container">
+            <button class="filter_btn active" data-filter="all">الكل</button>
+            <button class="filter_btn" data-filter="seo">SEO</button>
+            <button class="filter_btn" data-filter="logo">Logo</button>
+            <button class="filter_btn" data-filter="website">Website</button>
+            <button class="filter_btn" data-filter="uiux">UI/UX</button>
+            <button class="filter_btn" data-filter="systems">Systems</button>
+            <button class="filter_btn" data-filter="themes">Themes</button>
+            <button class="filter_btn" data-filter="posts">Posts</button>
+            <button class="filter_btn" data-filter="montage">Montage</button>
+            <button class="filter_btn" data-filter="motion">Motion Graphic</button>
+          </div>
+
+          <!-- Projects Grid -->
+          <div class="projects_grid" id="projectsGrid">
+
+            <!-- Project 1: Website -->
+            <a href="project-single.html" class="project_card cyber-corners" data-category="website">
+              <div class="project_card_img_holder">
+                <img src="assets/image/project1.png" alt="منصة تجارة إلكترونية" />
+                <div class="project_zoom_overlay" title="تكبير لقطة المشروع">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+              </div>
+              <div class="project_card_content">
+                <div class="project_card_tags">
+                  <span class="project_tag">Website</span>
+                  <span class="project_tag">UI/UX</span>
+                </div>
+                <h3 class="project_card_title">تطوير منصة متجر رائد التجاري</h3>
+                <p class="project_card_desc">تصميم وتطوير متجر إلكتروني متكامل وسريع الاستجابة متوافق مع كافة الهواتف وبوابات الدفع الإلكترونية.</p>
+                <span class="project_action_btn"><i class="fa-solid fa-eye"></i></span>
+              </div>
+            </a>
+
+            <!-- Project 2: SEO -->
+            <a href="project-single.html" class="project_card cyber-corners" data-category="seo">
+              <div class="project_card_img_holder">
+                <img src="assets/image/project2.png" alt="تصدر نتائج محرك البحث" />
+                <div class="project_zoom_overlay" title="تكبير لقطة المشروع">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+              </div>
+              <div class="project_card_content">
+                <div class="project_card_tags">
+                  <span class="project_tag">SEO</span>
+                </div>
+                <h3 class="project_card_title">حملة تهيئة محركات البحث لموقع طبي</h3>
+                <p class="project_card_desc">تحسين السيو الداخلي والخارجي لرفع نسبة الزيارات الطبيعية بنسبة تفوق 300% وتصدر أهم الكلمات.</p>
+                <span class="project_action_btn"><i class="fa-solid fa-eye"></i></span>
+              </div>
+            </a>
+
+            <!-- Project 3: Logo -->
+            <a href="project-single.html" class="project_card cyber-corners" data-category="logo">
+              <div class="project_card_img_holder">
+                <img src="assets/image/why services2.png" alt="تصميم هوية بصرية وشعار" />
+                <div class="project_zoom_overlay" title="تكبير لقطة المشروع">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+              </div>
+              <div class="project_card_content">
+                <div class="project_card_tags">
+                  <span class="project_tag">Logo</span>
+                  <span class="project_tag">UI/UX</span>
+                </div>
+                <h3 class="project_card_title">تصميم شعار وهوية شركة تيك كورب</h3>
+                <p class="project_card_desc">بناء هوية بصرية رقمية متكاملة تتضمن الشعار، اختيار الألوان المناسبة، والدليل الإرشادي للاستخدام.</p>
+                <span class="project_action_btn"><i class="fa-solid fa-eye"></i></span>
+              </div>
+            </a>
+
+            <!-- Project 4: Systems -->
+            <a href="project-single.html" class="project_card cyber-corners" data-category="systems">
+              <div class="project_card_img_holder">
+                <img src="assets/image/service3.png" alt="نظام برمجيات سحابية" />
+                <div class="project_zoom_overlay" title="تكبير لقطة المشروع">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+              </div>
+              <div class="project_card_content">
+                <div class="project_card_tags">
+                  <span class="project_tag">Systems</span>
+                </div>
+                <h3 class="project_card_title">تطوير نظام إدارة الموارد ERP السحابي</h3>
+                <p class="project_card_desc">تطوير لوحة تحكم ونظام متكامل لتسيير الموظفين والمخازن والتقارير المالية للشركات المتوسطة.</p>
+                <span class="project_action_btn"><i class="fa-solid fa-eye"></i></span>
+              </div>
+            </a>
+
+            <!-- Project 5: Themes -->
+            <a href="project-single.html" class="project_card cyber-corners" data-category="themes">
+              <div class="project_card_img_holder">
+                <img src="assets/image/project2.png" alt="تصميم ثيم ويب" />
+                <div class="project_zoom_overlay" title="تكبير لقطة المشروع">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+              </div>
+              <div class="project_card_content">
+                <div class="project_card_tags">
+                  <span class="project_tag">Themes</span>
+                </div>
+                <h3 class="project_card_title">تصميم ثيم ووردبريس رقمي مخصص</h3>
+                <p class="project_card_desc">برمجة ثيم WordPress سريع وخفيف متطابق مع متطلبات السيو ويدعم تشغيل الوضع الليلي المريح.</p>
+                <span class="project_action_btn"><i class="fa-solid fa-eye"></i></span>
+              </div>
+            </a>
+
+            <!-- Project 6: Motion Graphic -->
+            <a href="project-single.html" class="project_card cyber-corners" data-category="motion">
+              <div class="project_card_img_holder">
+                <img src="assets/image/why services3.png" alt="موشن جرافيك تعريفي" />
+                <div class="project_zoom_overlay" title="تكبير لقطة المشروع">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+              </div>
+              <div class="project_card_content">
+                <div class="project_card_tags">
+                  <span class="project_tag">Motion Graphic</span>
+                </div>
+                <h3 class="project_card_title">فيديو موشن جرافيك ترويجي لشركة زاد</h3>
+                <p class="project_card_desc">إنتاج وتحريك فيديو إعلاني مبهر يعرض الميزات التنافسية للتطبيق بأسلوب تفاعلي وجذاب.</p>
+                <span class="project_action_btn"><i class="fa-solid fa-eye"></i></span>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Cyber Pagination -->
+          <div class="cyber_pagination">
+            <a href="#" class="page_btn disabled"><i class="fa-solid fa-chevron-right"></i></a>
+            <a href="#" class="page_btn active">01</a>
+            <a href="#" class="page_btn">02</a>
+            <a href="#" class="page_btn">03</a>
+            <a href="#" class="page_btn"><i class="fa-solid fa-chevron-left"></i></a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <canvas id="footerCanvas"></canvas>
+      <div class="footer_container container">
+
+        <div class="footer_system_grid cyber-corners">
+
+          <div class="footer_col brand_col">
+            <div class="footer_logo">
+              <img src="assets/image/footer img.png" alt="logo" loading="lazy" />
+            </div>
+            <p class="brand_slogan">بساطة... تميــــز... احتــــــــرافــــ</p>
+            <div class="digital_indicator">
+              <span class="indicator_pulse"></span>
+              <span class="indicator_text">بوابة العمليات متصلة ونشطة</span>
+            </div>
+          </div>
+
+          <div class="footer_col action_col">
+            <div class="action_top">
+              <h4 class="col_title">// قنوات سريعة</h4>
+              <a href="index.html#contact" class="footer_action_btn">[ احجز جلستك الاستشارية ]</a>
+            </div>
+
+            <div class="newsletter_box">
+              <span class="newsletter_title">// اشترك لتصلك تحديثاتنا البرمجية</span>
+              <form class="newsletter_form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('تم تسجيل بريدك بنجاح!'); this.reset();">
+                <div class="newsletter_input_group">
+                  <input type="email" placeholder="أدخل بريدك الإلكتروني" required class="newsletter_input" />
+                  <button type="submit" class="newsletter_btn">
+                    <span>إرسال</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="footer_links">
+              <a href="terms-and-conditions.html" class="page_link">// شروط التعامل</a>
+              <a href="privacy-policy.html" class="page_link">// سياسة الخصوصية</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer_bottom_bar">
+          <div class="footer_socials">
+            <a href="#" class="social_pill"><i class="fa-brands fa-youtube"></i><span>يوتيوب</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-facebook-f"></i><span>فيسبوك</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-instagram"></i><span>انستغرام</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-linkedin-in"></i><span>لينكد إن</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-tiktok"></i><span>تيك توك</span></a>
+          </div>
+          <div class="copyright_text">
+            <span>© 2026 FOURSW</span>
+            <span class="copyright_sep">//</span>
+            <span>[جميع_الحقوق_محفوظة]</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="watch_video" id="watchVideo">
+        <div class="key_combination">
+          <div class="keycap ctrl_key">Ctrl</div>
+          <span class="plus_sign">+</span>
+          <div class="keycap k_key">K</div>
+        </div>
+        <div class="video_icon_only">
+          <i class="fa-solid fa-play"></i>
+        </div>
+        <div class="video_tooltip">اضغط لمشاهدة الفيديو</div>
+      </div>
+    </footer>
+
+    <div class="myvideo" id="myVideo">
+      <div class="video_window">
+        <!-- Pixel corners decoration -->
+        <div class="video_corner top_left"></div>
+        <div class="video_corner top_right"></div>
+        <div class="video_corner bottom_left"></div>
+        <div class="video_corner bottom_right"></div>
+
+        <!-- Video window header -->
+        <div class="video_header">
+          <div class="video_dots">
+            <span class="dot red" id="closeVideo"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="video_title">[عرض_الفيديو_التعريفي]</div>
+        </div>
+
+        <div class="video_body">
+          <iframe id="promoIframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal for Project Images -->
+    <div class="lightbox_modal" id="projectLightbox" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3,4,15,0.95); align-items: center; justify-content: center;">
+      <span class="lightbox_close" id="projectLightboxClose" style="position: absolute; top: 20px; right: 30px; font-size: 40px; color: #328af1; cursor: pointer; user-select: none;">&times;</span>
+      <img class="lightbox_img" id="projectLightboxImg" src="" alt="Zoomed view" style="max-width: 90%; max-height: 85%; object-fit: contain; border: 2px solid #328af1; box-shadow: 0 0 20px rgba(50, 138, 241, 0.4);">
+    </div>
+
+    <!--==================== JS SCRIPTS ====================-->
+    <script src="assets/js/script.js?v=2.0"></script>
+
+  </body>
+</html>

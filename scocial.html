@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الاتصال البرمجية // FOURSW</title>
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/image/favicon.png" type="image/x-icon">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="style.css?v=2.0" />
+
+    <!--=============== FONTAWESOME ===============-->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+\n    <!--=============== PAGE CUSTOM STYLE (SELF-CONTAINED) ===============-->\n    <style>
+/* ==================== PREMIUM SOCIAL PAGE STYLES ==================== */
+.social_body_theme {
+  overflow-x: hidden;
+  background-color: #030514;
+  position: relative;
+  /* Grid background guides matching index.html */
+  background-image: 
+    linear-gradient(rgba(50, 138, 241, 0.02) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(50, 138, 241, 0.02) 1.5px, transparent 1.5px);
+  background-size: 40px 40px, 40px 40px;
+}
+
+.page_social {
+  padding-block: 6rem 4rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IDE Dashboard Layout Frame */
+.ide_portal_frame {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(6, 8, 42, 0.75);
+  border: 1px solid rgba(50, 138, 241, 0.18);
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
+              inset 0 0 30px rgba(50, 138, 241, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  animation: ideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes ideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header bar */
+.ide_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #030514;
+  border-bottom: 1px solid rgba(50, 138, 241, 0.15);
+  padding: 12px 20px;
+  direction: ltr;
+}
+
+.window_controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ctrl_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.ctrl_dot.close { background-color: #ff5f56; }
+.ctrl_dot.minimize { background-color: #ffbd2e; }
+.ctrl_dot.maximize { background-color: #27c93f; }
+
+.window_path_title {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 11px;
+  color: #328af1;
+  opacity: 0.9;
+  text-shadow: 0 0 5px rgba(50, 138, 241, 0.3);
+}
+
+.system_mode_badge {
+  font-family: monospace;
+  font-size: 10px;
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.25);
+  padding: 2px 8px;
+  font-weight: bold;
+}
+
+/* Grid workspace */
+.ide_body_grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 480px;
+}
+
+/* Sidebar Explorer */
+.ide_sidebar {
+  background: rgba(3, 5, 20, 0.9);
+  border-left: 1px solid rgba(50, 138, 241, 0.12);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: right;
+}
+
+.sidebar_title {
+  font-family: var(--heading-font);
+  font-size: 12px;
+  color: rgba(50, 138, 241, 0.65);
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.file_tree {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tree_node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 13.5px;
+  color: #a4b3d6;
+  direction: ltr;
+  justify-content: flex-end;
+}
+
+.tree_node .file_icon {
+  font-size: 14px;
+}
+
+.tree_node .file_name {
+  flex-grow: 1;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.tree_node:hover {
+  background: rgba(50, 138, 241, 0.06);
+  color: #fff;
+}
+
+.tree_node.active {
+  background: rgba(50, 138, 241, 0.15);
+  color: #fff;
+  border-right: 3px solid #328af1;
+  padding-right: 9px;
+}
+
+/* Colors for specific files */
+.fb_color { color: #1877f2; }
+.insta_color { color: #e1306c; }
+.link_color { color: #0077b5; }
+.tiktok_color { color: #ff0050; }
+.web_color { color: #328af1; }
+
+/* Editor workspace */
+.ide_editor_pane {
+  background: rgba(2, 4, 18, 0.85);
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.editor_tabs {
+  display: flex;
+  background: #030514;
+  border-bottom: 1px solid rgba(50, 138, 241, 0.12);
+  direction: ltr;
+}
+
+.tab_item {
+  font-family: monospace;
+  font-size: 12px;
+  color: rgba(235, 243, 254, 0.4);
+  padding: 10px 20px;
+  border-right: 1px solid rgba(50, 138, 241, 0.1);
+  background: rgba(9, 12, 62, 0.1);
+  cursor: default;
+}
+
+.tab_item.active {
+  color: #328af1;
+  background: rgba(2, 4, 18, 0.85);
+  border-top: 2px solid #328af1;
+  padding-top: 8px;
+}
+
+/* Code area */
+.editor_content {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 14.5px;
+  line-height: 1.6;
+  direction: ltr;
+  overflow: auto;
+}
+
+.editor_lines {
+  display: flex;
+  flex-direction: column;
+  color: rgba(50, 138, 241, 0.3);
+  text-align: right;
+  padding-right: 15px;
+  border-right: 1px solid rgba(50, 138, 241, 0.1);
+  user-select: none;
+}
+
+.editor_lines span {
+  width: 20px;
+}
+
+.code_display {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.code_display pre {
+  margin: 0;
+  color: #ebf3fe;
+}
+
+/* Code color classes */
+.code_var { color: #f8c555; }
+.code_str { color: #2ecc71; }
+.code_key { color: #328af1; }
+.code_val { color: #e289f2; }
+
+/* Trigger Panel */
+.connection_trigger_panel {
+  padding: 15px 20px;
+  border-top: 1px solid rgba(50, 138, 241, 0.1);
+  display: flex;
+  justify-content: flex-start;
+  direction: rtl;
+}
+
+.ide_run_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  background: rgba(46, 204, 113, 0.04);
+  padding: 10px 24px;
+  font-family: var(--heading-font);
+  font-size: 14.5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.ide_run_btn:hover {
+  background: rgba(46, 204, 113, 0.15);
+  border-color: #2ecc71;
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Terminal debug console */
+.ide_terminal {
+  border-top: 1px solid rgba(50, 138, 241, 0.15);
+  background: #020208;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal_header {
+  background: #030514;
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba(50, 138, 241, 0.08);
+}
+
+.terminal_title {
+  font-family: var(--heading-font);
+  font-size: 11px;
+  color: rgba(50, 138, 241, 0.5);
+  font-weight: bold;
+}
+
+.terminal_output {
+  flex: 1;
+  padding: 12px 20px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 12px;
+  color: rgba(235, 243, 254, 0.65);
+  overflow-y: auto;
+  line-height: 1.5;
+  text-align: right;
+  direction: rtl;
+}
+
+.log_row {
+  margin-bottom: 4px;
+  display: block;
+}
+
+.log_success { color: #2ecc71; }
+.log_info { color: #328af1; }
+.log_warn { color: #ffbd2e; }
+
+/* Responsive IDE */
+@media screen and (max-width: 768px) {
+  .ide_body_grid {
+    grid-template-columns: 1fr;
+  }
+  .ide_sidebar {
+    border-left: none;
+    border-bottom: 1px solid rgba(50, 138, 241, 0.12);
+    padding: 12px;
+  }
+  .file_tree {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tree_node {
+    flex: 1 1 40%;
+    justify-content: center;
+    padding: 8px;
+  }
+}
+</style>\n</head>
+
+<body class="social_body_theme">
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== PAGE SOCIAL ====================-->
+        <section class="page_social section">
+            <div class="page_social_container container">
+                
+                <!-- Programming IDE / Console Portal Frame -->
+                <div class="ide_portal_frame cyber-corners">
+                    <!-- Cyber Corners -->
+                    <div class="cyber-corner top-left"></div>
+                    <div class="cyber-corner top-right"></div>
+                    <div class="cyber-corner bottom-left"></div>
+                    <div class="cyber-corner bottom-right"></div>
+                    
+                    <!-- IDE Window Header -->
+                    <div class="ide_header">
+                        <div class="window_controls">
+                            <span class="ctrl_dot close"></span>
+                            <span class="ctrl_dot minimize"></span>
+                            <span class="ctrl_dot maximize"></span>
+                        </div>
+                        <div class="window_path_title">foursw://workspace/social_connections_terminal</div>
+                        <div class="system_mode_badge">SYSTEM: ACTIVE</div>
+                    </div>
+                    
+                    <!-- IDE Body -->
+                    <div class="ide_body_grid">
+                        
+                        <!-- Sidebar: File Explorer -->
+                        <aside class="ide_sidebar">
+                            <div class="sidebar_title">// مستكشف الملفات</div>
+                            <ul class="file_tree">
+                                <li class="tree_node active" data-connection-index="0">
+                                    <i class="fa-solid fa-file-code file_icon fb_color"></i>
+                                    <span class="file_name">facebook.sys</span>
+                                </li>
+                                <li class="tree_node" data-connection-index="1">
+                                    <i class="fa-solid fa-file-code file_icon insta_color"></i>
+                                    <span class="file_name">instagram.sys</span>
+                                </li>
+                                <li class="tree_node" data-connection-index="2">
+                                    <i class="fa-solid fa-file-code file_icon link_color"></i>
+                                    <span class="file_name">linkedin.sys</span>
+                                </li>
+                                <li class="tree_node" data-connection-index="3">
+                                    <i class="fa-solid fa-file-code file_icon tiktok_color"></i>
+                                    <span class="file_name">tiktok.sys</span>
+                                </li>
+                                <li class="tree_node" data-connection-index="4">
+                                    <i class="fa-solid fa-file-code file_icon web_color"></i>
+                                    <span class="file_name">website.sys</span>
+                                </li>
+                            </ul>
+                        </aside>
+                        
+                        <!-- Editor & Output Pane -->
+                        <main class="ide_editor_pane">
+                            <!-- Tabs header -->
+                            <div class="editor_tabs">
+                                <div class="tab_item active" id="activeTabName">facebook.sys</div>
+                            </div>
+                            
+                            <!-- Editor Content Area -->
+                            <div class="editor_content">
+                                <div class="editor_lines">
+                                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                                </div>
+                                <div class="code_display">
+                                    <pre id="codeDisplayArea"></pre>
+                                </div>
+                            </div>
+                            
+                            <!-- Connection Trigger Area -->
+                            <div class="connection_trigger_panel">
+                                <a href="https://www.facebook.com/soon4sw" target="_blank" class="ide_run_btn" id="runConnectionBtn">
+                                    <i class="fa-solid fa-play"></i>
+                                    <span>[تفعيل_الاتصال_بالمنصة]</span>
+                                </a>
+                            </div>
+                            
+                            <!-- Debugger Terminal Output -->
+                            <div class="ide_terminal">
+                                <div class="terminal_header">
+                                    <span class="terminal_title">// مخرجات وحدة المعالجة (Debug Console)</span>
+                                </div>
+                                <div class="terminal_output" id="terminalOutputLog">
+                                    <!-- Dynamic diagnostic logs will print here -->
+                                </div>
+                            </div>
+                        </main>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!--==================== JS SCRIPT ====================-->
+    <script src="assets/js/script.js?v=2.0"></script>
+
+\n    <!--=============== PAGE CUSTOM JS (SELF-CONTAINED) ===============-->\n    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const treeNodes = document.querySelectorAll(".file_tree .tree_node");
+  const activeTabName = document.getElementById("activeTabName");
+  const codeDisplayArea = document.getElementById("codeDisplayArea");
+  const runConnectionBtn = document.getElementById("runConnectionBtn");
+  const terminalOutputLog = document.getElementById("terminalOutputLog");
+
+  const socialConfigs = [
+    {
+      filename: "facebook.sys",
+      url: "https://www.facebook.com/soon4sw",
+      code: `<span class="code_key">const</span> connection = {
+  platform: <span class="code_str">"Facebook"</span>,
+  account: <span class="code_str">"@soon4sw"</span>,
+  encryption: <span class="code_str">"SSL/TLS"</span>,
+  status: <span class="code_val">"ACTIVE"</span>,
+  port: <span class="code_val">443</span>
+};`,
+      logs: [
+        '<span class="log_info">>>> جاري تهيئة الاتصال بـ facebook.sys ...</span>',
+        '<span class="log_info">>>> بروتوكول المصادقة: HTTPS</span>',
+        '<span class="log_success">>>> تم تأسيس نفق الاتصال بنجاح. حالة المنفذ: مفتوح</span>',
+        '<span class="log_success">>>> جاهز لتوجيه الجلسة الآن!</span>'
+      ]
+    },
+    {
+      filename: "instagram.sys",
+      url: "https://www.instagram.com/soon4sw/",
+      code: `<span class="code_key">const</span> connection = {
+  platform: <span class="code_str">"Instagram"</span>,
+  account: <span class="code_str">"@soon4sw"</span>,
+  encryption: <span class="code_str">"SSL/TLS"</span>,
+  status: <span class="code_val">"ACTIVE"</span>,
+  port: <span class="code_val">443</span>
+};`,
+      logs: [
+        '<span class="log_info">>>> جاري تهيئة الاتصال بـ instagram.sys ...</span>',
+        '<span class="log_info">>>> بروتوكول المصادقة: HTTPS</span>',
+        '<span class="log_success">>>> تم تأسيس نفق الاتصال بنجاح. حالة المنفذ: مفتوح</span>',
+        '<span class="log_success">>>> جاهز لتوجيه الجلسة الآن!</span>'
+      ]
+    },
+    {
+      filename: "linkedin.sys",
+      url: "https://www.linkedin.com/company/soon4sw/",
+      code: `<span class="code_key">const</span> connection = {
+  platform: <span class="code_str">"LinkedIn"</span>,
+  company: <span class="code_str">"soon4sw"</span>,
+  encryption: <span class="code_str">"SSL/TLS"</span>,
+  status: <span class="code_val">"ACTIVE"</span>,
+  port: <span class="code_val">443</span>
+};`,
+      logs: [
+        '<span class="log_info">>>> جاري تهيئة الاتصال بـ linkedin.sys ...</span>',
+        '<span class="log_info">>>> بروتوكول المصادقة: HTTPS</span>',
+        '<span class="log_success">>>> تم تأسيس نفق الاتصال بنجاح. حالة المنفذ: مفتوح</span>',
+        '<span class="log_success">>>> جاهز لتوجيه الجلسة الآن!</span>'
+      ]
+    },
+    {
+      filename: "tiktok.sys",
+      url: "https://www.tiktok.com/@soon4sw",
+      code: `<span class="code_key">const</span> connection = {
+  platform: <span class="code_str">"TikTok"</span>,
+  account: <span class="code_str">"@soon4sw"</span>,
+  encryption: <span class="code_str">"SSL/TLS"</span>,
+  status: <span class="code_val">"ACTIVE"</span>,
+  port: <span class="code_val">443</span>
+};`,
+      logs: [
+        '<span class="log_info">>>> جاري تهيئة الاتصال بـ tiktok.sys ...</span>',
+        '<span class="log_info">>>> بروتوكول المصادقة: HTTPS</span>',
+        '<span class="log_success">>>> تم تأسيس نفق الاتصال بنجاح. حالة المنفذ: مفتوح</span>',
+        '<span class="log_success">>>> جاهز لتوجيه الجلسة الآن!</span>'
+      ]
+    },
+    {
+      filename: "website.sys",
+      url: "index.html",
+      code: `<span class="code_key">const</span> connection = {
+  platform: <span class="code_str">"Official Website"</span>,
+  domain: <span class="code_str">"foursw.com"</span>,
+  encryption: <span class="code_str">"SSL/TLS"</span>,
+  status: <span class="code_val">"ACTIVE"</span>,
+  port: <span class="code_val">443</span>
+};`,
+      logs: [
+        '<span class="log_info">>>> جاري تهيئة الاتصال بـ website.sys ...</span>',
+        '<span class="log_info">>>> بروتوكول المصادقة: HTTPS</span>',
+        '<span class="log_success">>>> تم تأسيس نفق الاتصال بنجاح. حالة المنفذ: مفتوح</span>',
+        '<span class="log_success">>>> جاهز لتوجيه الجلسة الآن!</span>'
+      ]
+    }
+  ];
+
+  function loadConnection(idx) {
+    const config = socialConfigs[idx];
+    if (!config) return;
+
+    if (activeTabName) activeTabName.textContent = config.filename;
+    if (codeDisplayArea) codeDisplayArea.innerHTML = config.code;
+    if (runConnectionBtn) runConnectionBtn.href = config.url;
+    
+    if (terminalOutputLog) {
+      terminalOutputLog.innerHTML = "";
+      config.logs.forEach((logLine, lineIdx) => {
+        setTimeout(() => {
+          const div = document.createElement("div");
+          div.className = "log_row";
+          div.innerHTML = logLine;
+          terminalOutputLog.appendChild(div);
+          terminalOutputLog.scrollTop = terminalOutputLog.scrollHeight;
+        }, lineIdx * 250);
+      });
+    }
+  }
+
+  if (treeNodes.length && codeDisplayArea) {
+    treeNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        if (typeof playCyberSound === "function") {
+          playCyberSound(950, 0.08, "triangle");
+        }
+        
+        treeNodes.forEach(t => t.classList.remove("active"));
+        node.classList.add("active");
+        
+        const idx = parseInt(node.getAttribute("data-connection-index"), 10);
+        loadConnection(idx);
+      });
+    });
+
+    if (runConnectionBtn) {
+      runConnectionBtn.addEventListener("click", () => {
+        if (typeof playCyberSound === "function") {
+          playCyberSound(1400, 0.15, "sine");
+        }
+      });
+    }
+
+    loadConnection(0);
+  }
+});
+</script>\n</body>
+
+</html>

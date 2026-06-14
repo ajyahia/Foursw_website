@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[بوابة_التواصل] // FOURSW</title>
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/image/favicon.png" type="image/x-icon" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="style.css?v=2.0" />
+
+    <!--=============== GOOGLE FONTS (Pixel & Digital) ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
+
+    <!--=============== FONTAWESOME ===============-->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+
+    <!--=============== INTERNAL STYLES FOR CONTACT PAGE ===============-->
+  </head>
+
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav_right">
+          <a href="contact.html" class="btn_contact btn active"><i class="fa-regular fa-envelope"></i><span>[تواصل_معنا]</span></a>
+          <ul class="nav_list">
+            <li><a href="projects.html" class="nav_link">الأعمال</a></li>
+            <li><a href="services.html" class="nav_link">الخدمات</a></li>
+            <li><a href="blog.html" class="nav_link">المُدونة </a></li>
+          </ul>
+        </div>
+
+        <button class="nav_toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="img_logo">
+          <img src="assets/image/logo.png" alt="logo" />
+        </a>
+
+        <div class="nav_left">
+          <ul class="nav_list">
+            <li><a href="index.html#partners" class="nav_link">شُركاؤنا</a></li>
+            <li><a href="index.html#direction" class="nav_link">الاتجاه</a></li>
+            <li><a href="index.html#start" class="nav_link">البِداية</a></li>
+          </ul>
+          <a href="projects.html" class="btn_stor btn">[متجر_الخدمات]</a>
+        </div>
+      </nav>
+      <div class="mobile_menu">
+        <div class="menu_scanner"></div>
+        <canvas class="menu_matrix_canvas"></canvas>
+        <div class="cyber_menu_header">
+          <span class="cyber_status"><span class="blink_dot"></span> النظام // متصل</span>
+          <span class="cyber_code">الاصدار ٢.٠</span>
+        </div>
+        <ul class="nav_list">
+          <li>
+            <a href="projects.html" class="nav_link">
+              <div>
+                <span class="nav_link_num">// ٠١</span>
+                <span>الأعمال</span>
+              </div>
+              <span class="nav_link_arrow"><i class="fa-solid fa-chevron-left"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="nav_link">
+              <div>
+                <span class="nav_link_num">// ٠٢</span>
+                <span>الخدمات</span>
+              </div>
+              <span class="nav_link_arrow"><i class="fa-solid fa-chevron-left"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="nav_link">
+              <div>
+                <span class="nav_link_num">// ٠٣</span>
+                <span>المُدونة</span>
+              </div>
+              <span class="nav_link_arrow"><i class="fa-solid fa-chevron-left"></i></span>
+            </a>
+          </li>
+        </ul>
+        <div class="cyber_menu_footer">
+          <span>المنفذ // آمن</span>
+          <span>الاستجابة // ١٢ ملي ثانية</span>
+        </div>
+      </div>
+
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <section class="contact_page">
+        <div class="container">
+
+          <div class="contact_card_frame cyber-corners">
+            <!-- Corner styling decorations -->
+            <div class="cyber-corner top_left"></div>
+            <div class="cyber-corner top_right"></div>
+            <div class="cyber-corner bottom_left"></div>
+            <div class="cyber-corner bottom_right"></div>
+
+            <div class="contact_header">
+              <span class="contact_title_badge">[بوابة_الربط_المباشر]</span>
+              <h1 class="contact_main_title">ابدأ رحلتك البرمجية معنا الآن</h1>
+            </div>
+
+            <!-- Form -->
+            <form class="contact_form" id="cyberContactForm">
+
+              <!-- Basic fields (Styled like footer email group) -->
+              <div class="form_group">
+                <div class="form_field">
+                  <label class="form_label" for="contactEmail">// البريد الإلكتروني</label>
+                  <div class="form_input_wrapper">
+                    <input type="email" id="contactEmail" class="form_input" placeholder="mail@domain.com" required />
+                  </div>
+                </div>
+                <div class="form_field">
+                  <label class="form_label" for="contactPhone">// رقم الهاتف</label>
+                  <div class="form_input_wrapper">
+                    <input type="tel" id="contactPhone" class="form_input" placeholder="+20 1000000000" required />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Checkbox Option -->
+              <div class="form_field">
+                <label class="meeting_toggle_container">
+                  <input type="checkbox" class="toggle_checkbox" id="meetToggle" />
+                  <span class="custom_toggle"></span>
+                  <span class="toggle_label">هل ترغب في جدولة اجتماع عمل مباشر؟</span>
+                </label>
+              </div>
+
+              <!-- Sliding Fields Area (Using Custom Dropdowns) -->
+              <div class="meeting_fields_area" id="meetingFields">
+                <div class="dropdown_grid">
+
+                  <!-- Day of the Week Custom Dropdown -->
+                  <div class="form_field">
+                    <label class="form_label">// اختر اليوم المناسب</label>
+                    <div class="custom_select" id="meetDaySelect" data-value="السبت">
+                      <div class="custom_select_trigger">السبت</div>
+                      <div class="custom_select_options">
+                        <div class="custom_select_option selected" data-value="السبت">السبت</div>
+                        <div class="custom_select_option" data-value="الأحد">الأحد</div>
+                        <div class="custom_select_option" data-value="الإثنين">الإثنين</div>
+                        <div class="custom_select_option" data-value="الثلاثاء">الثلاثاء</div>
+                        <div class="custom_select_option" data-value="الأربعاء">الأربعاء</div>
+                        <div class="custom_select_option" data-value="الخميس">الخميس</div>
+                        <div class="custom_select_option" data-value="الجمعة">الجمعة</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Time Selector Split Custom Dropdowns -->
+                  <div class="form_field">
+                    <label class="form_label">// التوقيت المفضل</label>
+                    <div class="time_select_grid">
+                      <!-- Hour Custom Dropdown -->
+                      <div class="custom_select" id="meetHourSelect" data-value="12">
+                        <div class="custom_select_trigger">12</div>
+                        <div class="custom_select_options">
+                          <div class="custom_select_option" data-value="01">01</div>
+                          <div class="custom_select_option" data-value="02">02</div>
+                          <div class="custom_select_option" data-value="03">03</div>
+                          <div class="custom_select_option" data-value="04">04</div>
+                          <div class="custom_select_option" data-value="05">05</div>
+                          <div class="custom_select_option" data-value="06">06</div>
+                          <div class="custom_select_option" data-value="07">07</div>
+                          <div class="custom_select_option" data-value="08">08</div>
+                          <div class="custom_select_option" data-value="09">09</div>
+                          <div class="custom_select_option" data-value="10">10</div>
+                          <div class="custom_select_option" data-value="11">11</div>
+                          <div class="custom_select_option selected" data-value="12">12</div>
+                        </div>
+                      </div>
+
+                      <!-- Minute Custom Dropdown (every 15 mins) -->
+                      <div class="custom_select" id="meetMinuteSelect" data-value="00">
+                        <div class="custom_select_trigger">00</div>
+                        <div class="custom_select_options">
+                          <div class="custom_select_option selected" data-value="00">00</div>
+                          <div class="custom_select_option" data-value="15">15</div>
+                          <div class="custom_select_option" data-value="30">30</div>
+                          <div class="custom_select_option" data-value="45">45</div>
+                        </div>
+                      </div>
+
+                      <!-- AM/PM Custom Dropdown -->
+                      <div class="custom_select" id="meetMeridiemSelect" data-value="مساءً">
+                        <div class="custom_select_trigger">PM</div>
+                        <div class="custom_select_options">
+                          <div class="custom_select_option selected" data-value="مساءً" data-display="PM">PM</div>
+                          <div class="custom_select_option" data-value="صباحاً" data-display="AM">AM</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Meeting Type Custom Dropdown -->
+                  <div class="form_field">
+                    <label class="form_label">// نوع المقابلة</label>
+                    <div class="custom_select" id="meetTypeSelect" data-value="أونلاين (Online)">
+                      <div class="custom_select_trigger">أونلاين (Online)</div>
+                      <div class="custom_select_options">
+                        <div class="custom_select_option selected" data-value="أونلاين (Online)">أونلاين (Online)</div>
+                        <div class="custom_select_option" data-value="أوفلاين (Offline)">أوفلاين (Offline)</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Form Buttons -->
+              <div class="btn_container">
+                <button type="submit" class="action_btn btn_submit">
+                  <span>إرسال البيانات</span>
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+                <button type="button" class="action_btn btn_instant_meet" id="btnInstantMeet">
+                  <span>ادخل ميتنج الان</span>
+                  <i class="fa-solid fa-video"></i>
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!--==================== POPUP MODULES (CONFIRM / FAIL) ====================-->
+    <div class="terminal_popup_overlay" id="terminalPopup">
+      <div class="terminal_window success_style" id="popupWindow">
+
+        <!-- Header -->
+        <div class="terminal_header">
+          <span class="terminal_title" id="popupTerminalTitle">SYSTEM // RESPONSE_SUCCESS</span>
+          <button class="terminal_close_btn" id="closePopupBtn">&times;</button>
+        </div>
+
+        <!-- Body -->
+        <div class="terminal_body">
+          <div class="terminal_icon" id="popupIcon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h2 class="terminal_message_title" id="popupMsgTitle">تم تسجيل بياناتك بنجاح</h2>
+          <p class="terminal_message_text" id="popupMsgText">
+            لقد استلمنا طلب التواصل الخاص بك بنجاح. سيقوم مهندسو النظام بمراجعة الطلب والرد عليك خلال مدة لا تتجاوز ٢٤ ساعة عمل.
+          </p>
+          <button class="terminal_action_btn" id="popupActionBtn">إنهاء العملية</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <canvas id="footerCanvas"></canvas>
+      <div class="footer_container container">
+
+        <div class="footer_system_grid cyber-corners">
+
+          <div class="footer_col brand_col">
+            <div class="footer_logo">
+              <img src="assets/image/footer img.png" alt="logo" loading="lazy" />
+            </div>
+            <p class="brand_slogan">بساطة... تميــــز... احتــــــــرافــــ</p>
+            <div class="digital_indicator">
+              <span class="indicator_pulse"></span>
+              <span class="indicator_text">بوابة العمليات متصلة ونشطة</span>
+            </div>
+          </div>
+
+          <div class="footer_col action_col">
+            <div class="action_top">
+              <h4 class="col_title">// قنوات سريعة</h4>
+              <a href="contact.html" class="footer_action_btn">[ احجز جلستك الاستشارية ]</a>
+            </div>
+
+            <div class="newsletter_box">
+              <span class="newsletter_title">// اشترك لتصلك تحديثاتنا البرمجية</span>
+              <form class="newsletter_form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('تم تسجيل بريدك بنجاح!'); this.reset();">
+                <div class="newsletter_input_group">
+                  <input type="email" placeholder="أدخل بريدك الإلكتروني" required class="newsletter_input" />
+                  <button type="submit" class="newsletter_btn">
+                    <span>إرسال</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="footer_links">
+              <a href="terms-and-conditions.html" class="page_link">// شروط التعامل</a>
+              <a href="privacy-policy.html" class="page_link">// سياسة الخصوصية</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer_bottom_bar">
+          <div class="footer_socials">
+            <a href="#" class="social_pill"><i class="fa-brands fa-youtube"></i><span>يوتيوب</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-facebook-f"></i><span>فيسبوك</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-instagram"></i><span>انستغرام</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-linkedin-in"></i><span>لينكد إن</span></a>
+            <a href="#" class="social_pill"><i class="fa-brands fa-tiktok"></i><span>تيك توك</span></a>
+          </div>
+          <div class="copyright_text">
+            <span>© 2026 FOURSW</span>
+            <span class="copyright_sep">//</span>
+            <span>[جميع_الحقوق_محفوظة]</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="watch_video" id="watchVideo">
+        <div class="key_combination">
+          <div class="keycap ctrl_key">Ctrl</div>
+          <span class="plus_sign">+</span>
+          <div class="keycap k_key">K</div>
+        </div>
+        <div class="video_icon_only">
+          <i class="fa-solid fa-play"></i>
+        </div>
+        <div class="video_tooltip">اضغط لمشاهدة الفيديو</div>
+      </div>
+    </footer>
+
+    <div class="myvideo" id="myVideo">
+      <div class="video_window">
+        <div class="video_corner top_left"></div>
+        <div class="video_corner top_right"></div>
+        <div class="video_corner bottom_left"></div>
+        <div class="video_corner bottom_right"></div>
+
+        <div class="video_header">
+          <div class="video_dots">
+            <span class="dot red" id="closeVideo"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="video_title">[عرض_الفيديو_التعريفي]</div>
+        </div>
+
+        <div class="video_body">
+          <iframe id="promoIframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!--==================== JS SCRIPTS ====================-->
+    <script src="assets/js/script.js?v=2.0"></script>
+
+  </body>
+</html>
