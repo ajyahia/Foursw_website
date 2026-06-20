@@ -1682,3 +1682,209 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
+
+// ================== CYBER PRELOADER LOGIC & AUDIO SYNTHESIS =====================
+(function() {
+  const preloader = document.getElementById('cyber-preloader');
+  if (!preloader) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const forceIntro = urlParams.get('intro') === 'true';
+  const hasVisited = sessionStorage.getItem('foursw_visited');
+
+  // If visited and not forced, remove immediately
+  if (hasVisited && !forceIntro) {
+    preloader.remove();
+    return;
+  }
+
+  // Prevent scroll during loading
+  document.body.style.overflow = 'hidden';
+
+  const audioInitBtn = document.getElementById('audio-init-btn');
+  const audioInitOverlay = document.getElementById('audio-init-overlay');
+  const progressBarInner = document.getElementById('progress-bar-inner');
+  const progressPercent = document.getElementById('progress-percent');
+  const terminal = document.getElementById('preloader-terminal');
+
+  let audioCtx = null;
+  let audioEnabled = false;
+
+  // Web Audio Synth Function
+  function playBeep(freq, duration, type = 'sine', vol = 0.1) {
+    if (!audioEnabled || !audioCtx) return;
+    try {
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      
+      osc.type = type;
+      osc.frequency.value = freq;
+      
+      gainNode.gain.setValueAtTime(vol, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    } catch(e) {
+      console.warn("Audio play failed:", e);
+    }
+  }
+
+  function playPowerUpHum() {
+    if (!audioEnabled || !audioCtx) return;
+    try {
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(50, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 4.5);
+      
+      gainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);
+      gainNode.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 3);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 4.8);
+      
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      
+      osc.start();
+      osc.stop(audioCtx.currentTime + 4.9);
+    } catch(e) {}
+  }
+
+  function playGlitchSweep() {
+    if (!audioEnabled || !audioCtx) return;
+    try {
+      // Create a glitchy electronic transition noise sweep
+      const duration = 0.8;
+      const osc1 = audioCtx.createOscillator();
+      const osc2 = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      
+      osc1.type = 'sawtooth';
+      osc1.frequency.setValueAtTime(120, audioCtx.currentTime);
+      osc1.frequency.linearRampToValueAtTime(600, audioCtx.currentTime + duration * 0.4);
+      osc1.frequency.setValueAtTime(200, audioCtx.currentTime + duration * 0.4);
+      osc1.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + duration);
+
+      osc2.type = 'square';
+      osc2.frequency.setValueAtTime(80, audioCtx.currentTime);
+      osc2.frequency.setValueAtTime(400, audioCtx.currentTime + duration * 0.3);
+      osc2.frequency.setValueAtTime(100, audioCtx.currentTime + duration * 0.6);
+      osc2.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + duration);
+      
+      gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gainNode.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + duration * 0.5);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      
+      osc1.connect(gainNode);
+      osc2.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      
+      osc1.start();
+      osc1.stop(audioCtx.currentTime + duration);
+      osc2.start();
+      osc2.stop(audioCtx.currentTime + duration);
+    } catch(e) {}
+  }
+
+  const logs = [
+    { time: 0, text: "> جاري تحميل الخطوط البرمجية والأيقونات الأساسية للموقع...", type: "info" },
+    { time: 700, text: "> جاري تهيئة الهيكل البصري وأنماط الصفحة المتوافقة [تمت بنجاح]...", type: "success" },
+    { time: 1400, text: "> جاري تحميل وتأمين العناصر الرسومية المخصصة...", type: "info" },
+    { time: 2100, text: "> إعداد نصوص التفاعل وواجهات التحريك البرمجية الفعالة...", type: "info" },
+    { time: 2800, text: "> التحقق من استقرار ومزامنة الاتصال مع خادم فورسو الخاص...", type: "success" },
+    { time: 3500, text: "> تجميع عناصر الواجهة وعرض المحتوى الرقمي النهائي...", type: "info" },
+    { time: 4200, text: "> اكتمل بناء وتحميل الصفحة بنجاح. جاري الدخول للموقع...", type: "warning" }
+  ];
+
+  function addTerminalLine(text, type) {
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    if (type === 'success') line.classList.add('success');
+    if (type === 'warning') line.classList.add('warning');
+    line.textContent = text;
+    terminal.appendChild(line);
+    terminal.scrollTop = terminal.scrollHeight;
+    
+    // Play short log beep
+    if (audioEnabled) {
+      playBeep(type === 'success' ? 900 : 700, 0.05, 'square', 0.05);
+    }
+  }
+
+  function startBootSequence() {
+    // Hide overlay
+    audioInitOverlay.style.opacity = '0';
+    setTimeout(() => {
+      audioInitOverlay.style.display = 'none';
+    }, 500);
+
+    // Play initial boot chime
+    setTimeout(() => {
+      playBeep(440, 0.15, 'sine', 0.08);
+      setTimeout(() => playBeep(880, 0.3, 'sine', 0.08), 150);
+      playPowerUpHum();
+    }, 300);
+
+    // Print logs
+    logs.forEach(log => {
+      setTimeout(() => {
+        addTerminalLine(log.text, log.type);
+      }, log.time);
+    });
+
+    // Progress Bar Animation
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 1;
+      progressBarInner.style.width = progress + '%';
+      progressPercent.textContent = progress + '%';
+
+      if (progress >= 100) {
+        clearInterval(interval);
+        setTimeout(completeBootSequence, 400);
+      }
+    }, 45); // ~4.5 seconds + 0.5s transition = 5s total
+  }
+
+  function completeBootSequence() {
+    playGlitchSweep();
+    preloader.classList.add('preloader-hide');
+    document.body.classList.add('body-glitch-active');
+    
+    sessionStorage.setItem('foursw_visited', 'true');
+    
+    setTimeout(() => {
+      preloader.remove();
+      document.body.style.overflow = '';
+      // Remove glitch class after some time
+      setTimeout(() => {
+        document.body.classList.remove('body-glitch-active');
+      }, 1000);
+    }, 800);
+  }
+
+  // Event listener to trigger boot
+  audioInitBtn.addEventListener('click', () => {
+    // Setup Audio Context
+    try {
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContext();
+      audioEnabled = true;
+    } catch(e) {
+      console.warn("Audio Context not supported", e);
+    }
+    startBootSequence();
+  });
+})();
+
+
+
+
+

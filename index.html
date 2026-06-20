@@ -13,7 +13,7 @@
 
     <!--=============== CSS ===============-->
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="style.css?v=2.0" />
+    <link rel="stylesheet" href="style.css?v=2.2" />
 
     <!--=============== GOOGLE FONTS (Pixel & Digital) ===============-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,6 +28,44 @@
   </head>
 
   <body>
+    <!--=============== CYBER DIGITAL PRELOADER ===============-->
+    <div id="cyber-preloader">
+      <div class="audio-init-overlay" id="audio-init-overlay">
+        <button class="audio-init-btn" id="audio-init-btn">ابدأ الدخول للموقع</button>
+      </div>
+      <div class="preloader-hud cyber-corners">
+        <div class="cyber-corner top-left"></div>
+        <div class="cyber-corner top-right"></div>
+        <div class="cyber-corner bottom-left"></div>
+        <div class="cyber-corner bottom-right"></div>
+        
+        <div class="preloader-header">
+          <span>منصة فورسو // Foursw</span>
+          <span>حالة المنصة // جاري البناء</span>
+        </div>
+        
+        <div class="preloader-logo-container">
+          <img src="assets/image/logo.png" alt="Foursw Logo" class="preloader-logo-img" />
+        </div>
+        
+        <div class="preloader-terminal" id="preloader-terminal"></div>
+        
+        <div class="preloader-progress-container">
+          <div class="progress-text">
+            <span>تهيئة هويتك الرقمية كاملة...</span>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar-outer">
+            <div class="progress-bar-inner" id="progress-bar-inner"></div>
+          </div>
+        </div>
+        
+        <div class="preloader-footer">
+          <span>بساطة • تميز • احتراف</span>
+        </div>
+      </div>
+    </div>
+
     <!--==================== HEADER ====================-->
     <header class="header">
       <nav class="nav container">
@@ -1372,6 +1410,6 @@
     <!--==================== SCROLL REVEAL ====================-->
     <!-- <script src="assets/js/scrollreveal.js"></script> -->
     <!--==================== JS SCRIPT ====================-->
-    <script src="assets/js/script.js?v=2.0"></script>
+    <script src="assets/js/script.js?v=2.2"></script>
   </body>
 </html>
